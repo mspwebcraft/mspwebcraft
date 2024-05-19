@@ -2,6 +2,11 @@ import mongoose from "mongoose";
 
 const blogSchema = new mongoose.Schema(
   {
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     title: {
       type: String,
       required: true,
@@ -29,7 +34,7 @@ const blogSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true },
+  { timestamps: true }
 );
 
 const Blog = mongoose.models.blog || mongoose.model("blog", blogSchema);

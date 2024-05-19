@@ -3,9 +3,9 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
-import { Poppins } from "next/font/google";
 import "../styles/index.css";
-
+import "ag-grid-community/styles/ag-grid.css"; 
+import "ag-grid-community/styles/ag-theme-quartz.css";
 
 export default function RootLayout({ children }: ChildrenProp) {
 

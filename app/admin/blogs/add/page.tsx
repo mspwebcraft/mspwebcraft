@@ -7,6 +7,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Textarea from "@/components/ui/Textarea";
 import JoditEditor from "jodit-react";
+import useBlog from "@/hooks/useBlog";
+import { useUser } from "@/hooks/useAuth";
+import { useParams, useRouter } from "next/navigation";
 
 const BlogSchema = z.object({
   title: z.string().min(3, "Title is required."),
@@ -16,24 +19,38 @@ const BlogSchema = z.object({
   html: z.string().min(1, "Content of blog is required."),
 });
 
-type Blog = z.infer<typeof BlogSchema>;
+export type Blog = z.infer<typeof BlogSchema>;
+
+const inputs = [
+  { name: "title", placeholder: "Enter the title of blog" },
+  { name: "image", placeholder: "Enter the url of image" },
+  { name: "tags", placeholder: "Enter the tags related to blog" },
+];
 
 const AddBlog = () => {
-  const { handleSubmit, control, watch, setValue } = useForm<Blog>({
+  const { addBlog } = useBlog();
+  const { data: user } = useUser();
+  const { handleSubmit, control, reset } = useForm<Blog>({
     resolver: zodResolver(BlogSchema),
   });
-  const inputs = [
-    { name: "title", placeholder: "Enter the title of blog" },
-    { name: "image", placeholder: "Enter the url of image" },
-    { name: "tags", placeholder: "Enter the tags related to blog" },
-  ];
+
+  const handleAddBlog = async (data: Blog) => {
+    const author = user?._id || null;
+    const blog = { ...data, tags: data.tags.split(","), author };
+    await addBlog.mutateAsync(blog);
+    reset();
+  };
+
+  const router = useParams() ;
+  console.log(router.query)
+
   return (
-    <div className="rounded-xl border p-4">
+    <div className="border dark:border-gray-700 dark:bg-gray-900 p-4">
       <h1 className="my-4 mb-8 text-center text-3xl font-bold text-black dark:text-white">
         Add New Blog
       </h1>
 
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <form onSubmit={handleSubmit(handleAddBlog)}>
         <div className="grid grid-cols-2 gap-4 md:gap-4">
           {inputs.map(({ name, placeholder }, i) => (
             <Controller
@@ -51,7 +68,7 @@ const AddBlog = () => {
           ))}
           <Controller
             control={control}
-            name="tags"
+            name="paragraph"
             render={({ field: { onChange } }) => (
               <Textarea
                 placeholder="Enter Short description about blog"
