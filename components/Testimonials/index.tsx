@@ -5,12 +5,13 @@ import SingleTestimonial from "./SingleTestimonial";
 const testimonialData: Testimonial[] = [
   {
     id: 1,
-    name: "Musharof Chy",
+    name: "E Pizza Express",
     designation: "Founder @TailGrids",
     content:
       "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
-    image: "/images/testimonials/auth-01.png",
+    image: "https://epizzaexpress.in/_next/image?url=%2Fimg%2Fbanner%2Foffer.png&w=1080&q=75",
     star: 5,
+    linnew:'https://epizzaexpress.in/',
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const testimonialData: Testimonial[] = [
       "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
     image: "/images/testimonials/auth-02.png",
     star: 5,
+    linnew:'https://epizzaexpress.in/',
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const testimonialData: Testimonial[] = [
       "Our members are so impressed. It's intuitive. It's clean. It's distraction free. If you're building a community.",
     image: "/images/testimonials/auth-03.png",
     star: 5,
+    linnew:'https://epizzaexpress.in/',
   },
 ];
 
@@ -37,15 +40,17 @@ const Testimonials = () => {
     <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
         <SectionTitle
-          title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          title="See What We have Done"
+          paragraph="There are many variations of passages available but the majority have suffered alteration in some form."
           center
         />
 
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {testimonialData.map((testimonial) => (
             <SingleTestimonial key={testimonial.id} testimonial={testimonial} />
+            
           ))}
+     
         </div>
       </div>
       <div className="absolute right-0 top-5 z-[-1]">
@@ -176,6 +181,8 @@ const Testimonials = () => {
           </defs>
         </svg>
       </div>
+
+      
     </section>
   );
 };

@@ -7,7 +7,7 @@ const starIcon = (
 );
 
 const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
-  const { star, name, image, content, designation } = testimonial;
+  const { star, name, image, content, designation, linnew } = testimonial;
 
   let ratingIcons = [];
   for (let index = 0; index < star; index++) {
@@ -20,7 +20,7 @@ const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
 
   return (
     <div className="w-full">
-      <div
+      {/* <div
         className="wow fadeInUp shadow-two dark:shadow-three dark:hover:shadow-gray-dark rounded-sm bg-white p-8 duration-300 hover:shadow-one dark:bg-dark lg:px-5 xl:px-8"
         data-wow-delay=".1s"
       >
@@ -39,7 +39,36 @@ const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
             <p className="text-sm text-body-color">{designation}</p>
           </div>
         </div>
-      </div>
+      </div> */}
+         <a href={linnew} className="group relative block">
+  <div className="relative h-[350px] sm:h-[450px]">
+    <img
+      src="https://images.unsplash.com/photo-1593795899768-947c4929449d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80"
+      alt=""
+      className="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
+    />
+
+    <img
+      src="https://images.unsplash.com/photo-1593795899630-b6033c0fa58d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+      alt=""
+      className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100"
+    />
+  </div>
+
+  <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
+    <h3 className="text-xl font-medium text-white">{name}</h3>
+
+    <p className="mt-1.5 text-pretty text-xs text-white">
+      {content}
+    </p>
+
+    <span
+      className="mt-3 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white"
+    >
+      See Prohect
+    </span>
+  </div>
+</a>
     </div>
   );
 };
