@@ -43,13 +43,13 @@ const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
          <a href={linnew} className="group relative block">
   <div className="relative h-[350px] sm:h-[450px]">
     <img
-      src="https://images.unsplash.com/photo-1593795899768-947c4929449d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80"
+      src="https://themewagon.com/wp-content/uploads/2018/10/pizza-1.jpg"
       alt=""
       className="absolute inset-0 h-full w-full object-cover opacity-100 group-hover:opacity-0"
     />
 
     <img
-      src="https://images.unsplash.com/photo-1593795899630-b6033c0fa58d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+      src="https://cdn.dribbble.com/users/10559796/screenshots/20420646/media/446d0ff6c36838bde7be7f3a189615ed.png?resize=400x0"
       alt=""
       className="absolute inset-0 h-full w-full object-cover opacity-0 group-hover:opacity-100"
     />
