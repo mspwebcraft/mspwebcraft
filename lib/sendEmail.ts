@@ -10,8 +10,8 @@ export const sendEmail = async (data: SendMailProps) => {
       host: "smtpout.secureserver.net",
       port: 465,
       auth: {
-        user: process.env.MAIL_ID || "no-reply@eprocuretech.com",
-        pass: process.env.MP || "NoReplyLogin2023",
+        user: process.env.MAIL_ADDRESS || "no-reply@eprocuretech.com",
+        pass: process.env.MAIL_PASSWORD || "NoReplyLogin2023",
       },
     });
 

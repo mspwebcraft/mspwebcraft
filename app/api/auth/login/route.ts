@@ -1,9 +1,9 @@
 import bcrypt from "bcrypt";
 import dbConnect from "@/server/connectdb";
-import User from "@/server/models/auth.model";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { createJwtToken } from "@/server/utils/jwt";
+import User from "@/server/models/auth.model";
 
 dbConnect();
 
